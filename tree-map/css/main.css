@@ -1,0 +1,135 @@
+#banner {
+  background-color: #130707;
+}
+#banner-title {
+  font-size: 2.5em;
+  text-align: center;
+  color: white;
+}
+
+#googleForestMap {
+  height: 500px;
+  width: 100%;
+  border: 10px;
+  border-color: black;
+  color: #8d4654;
+}
+.box {
+    margin: 0;
+    padding: 5px;
+    background: none;
+    color: #ffffff;
+}
+
+.line-charts {
+  min-width: 919px;
+  height: 400px;
+  margin: 0 auto;
+  display: none;
+}
+
+.chart-active {
+  min-width: 919px;
+  height: 400px;
+  margin: 0 auto;
+  display: block;
+}
+
+#box-1 {
+    background-color: none;
+
+}
+.box-in-4 {
+
+}
+
+.box-in-8 {
+
+}
+
+.box-in-3 {
+
+}
+
+.box-in-9 {
+
+}
+
+.font-class-1 {
+    color: #ffffff;
+
+}
+
+#title {
+    height: inherit;
+    color: #ffffff;
+    font-size: 50px;
+}
+
+#intro {
+    background-color: none;
+    color: #ffffff;
+}
+
+#species1 {
+    background-color: none;
+    color: #ffffff;
+}
+
+#species2 {
+    background-color: none;
+    color: #ffffff;
+}
+
+.speal-box {
+  height: 400px;
+}
+
+.speal-column {
+  height: 100%;
+}
+
+#carbon {
+    background-color: none;
+    color: #ffffff;
+}
+
+#carbon-hist {
+    background-color: none;
+    color: #ffffff;
+}
+
+#dendro {
+    background-color: none;
+    color: #ffffff;
+}
+
+#growth {
+    background-color: none;
+    color: #ffffff;
+}
+
+#more {
+    background-color: none;
+    height: 200px;
+    color: #ffffff;
+}
+
+.break {
+    background-color: none;
+    height: 200px;
+    color: #ffffff;
+}
+
+.row-ext {
+    padding: 0;
+    background-color: #7798BF;
+}
+
+.col {
+
+}
+
+.graph {
+    margin: 10px;
+}

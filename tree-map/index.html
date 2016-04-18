@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <script src="js/jquery.js"></script>
+
+
+    <!--highcharts and js-->
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/map.js"></script>
+    <title>Bare - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+    body {
+        background-color: #381A00;
+        background-image: url(img/brown-leaf.jpg);
+        background-repeat: no-repeat;
+        padding-top: none;
+        background-attachment: fixed;
+        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+      <div class="column-lg-12" id="banner">
+          <div class="row">
+              <div id="banner-title">
+              <br>
+              <br>
+              <br>
+              <br>
+                South Forest </div>
+          </div>
+      </div>
+
+    <!-- Navigation -->
+    <nav id="navbar-main" class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed"
+                data-toggle="collapse" data-target="#navbar"
+                aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">South Forest</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+<!-- Title of Page -->
+
+        <div id="title" class="row text-center row-ext">
+            <div class="col-lg-12 col">
+                <div id="box-1" class="box">South Forest</div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+<!-- Intro Info -->
+        <div id="intro" class="row text-center row-ext">
+            <div class="col-md-4 col">
+		              <div class="box box-in-12">
+                      <div>Welcome to SUNY New Paltz's South Forest.</div>
+                  </div>
+            </div>
+
+            <div class="col-md-4 col">
+                <div class="box box-in-4">
+                  <div>Photo?</div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col">
+                <div class="box box-in-4">
+                    <div>Why are forests important?</div>
+                </div>
+            </div>
+        </div>
+        <div id="intro" class="row text-center row-ext">
+            <div id="forest-map" class="col-lg-12 col">
+                <div id="googleForestMap"> </div>
+            </div>
+        </div>
+        <script async defer
+           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXTSQWNf8A5vQKk7nrAy5CoCe7YSEqg2g&callback=initMap">
+           </script>
+
+
+<!-- Break Row/add Pic? -->
+        <div id="below-intro" class="row break">
+            <div class="col-lg-12 col">
+            </div>
+        </div>
+        <!-- /.row -->
+                            <pre id="tree-data" style="display: none;">
+                            Species, Abundance
+                            American beech,0.5855855856
+                            ostrya,0.3513513514
+                            carpinus,0.1081081081
+                            witch-hazel,0.1036036036
+                            black oak,0.0585585586
+                            juneberry,0.0540540541
+                            red maple,0.045045045
+                            sugar maple,0.045045045
+                            eastern hemlock,0.0405405405
+                            American elm,0.036036036
+                            sweet birch,0.036036036
+                            red oak,0.027027027
+                            unknown,0.0225225225
+                            white oak,0.0225225225
+                            white ash,0.018018018
+                            basswood,0.0135135135
+                            pignut hickory,0.009009009
+                            sassafrass,0.009009009
+                            swamp oak,0.009009009
+                            bigtooth aspen,0.0045045045
+                            butternut,0.0045045045
+                            chestnut oak,0.0045045045
+                            quaking aspen,0.0045045045
+                            shagbark hickory,0.0045045045
+                            </pre>
+
+                            <pre id="tree-data-edge" style="display: none;">
+                            Species,Edge
+                            American beech,0.3738738739
+                            ostrya,0.1711711712
+                            witch-hazel,0.0945945946
+                            carpinus,0.0720720721
+                            black oak,0.0495495495
+                            red maple,0.0405405405
+                            American elm,0.036036036
+                            juneberry,0.0315315315
+                            red oak,0.0225225225
+                            white oak,0.0225225225
+                            white ash,0.018018018
+                            basswood,0.0135135135
+                            unknown,0.0135135135
+                            swamp oak,0.009009009
+                            chestnut oak,0.0045045045
+                            eastern hemlock,0.0045045045
+                            quaking aspen,0.0045045045
+                            sassafrass,0.0045045045
+                            shagbark hickory,0.0045045045
+                            sugar maple,0.0045045045
+                            sweet birch,0.0045045045
+                            bigtooth aspen,
+                            butternut,
+                            pignut hickory,
+                            </pre>
+
+                            <pre id="tree-data-interior" style="display:none;">
+                            Species,Interior
+                            American beech,0.3430656934
+                            ostrya,0.2919708029
+                            sugar maple,0.0656934307
+                            carpinus,0.0583941606
+                            eastern hemlock,0.0583941606
+                            sweet birch,0.0510948905
+                            juneberry,0.0364963504
+                            black oak,0.0145985401
+                            pignut hickory,0.0145985401
+                            unknown,0.0145985401
+                            witch-hazel,0.0145985401
+                            bigtooth aspen,0.0072992701
+                            butternut,0.0072992701
+                            red maple,0.0072992701
+                            red oak,0.0072992701
+                            sassafrass,0.0072992701
+                            American elm,
+                            basswood,
+                            chestnut oak,
+                            quaking aspen,
+                            shagbark hickory,
+                            swamp oak,
+                            white ash,
+                            white oak,
+                            </pre>
+
+<!--Species and Diversity-->
+        <div id="species-chart-selector" class="row text-center row-ext">
+            <div class="col-sm-2 col">
+            </div>
+            <div class="col-lg-8 col">
+                <div class="box box-in-12">
+                        <div class="btn-group btn-group-lg" style="margin:5px">
+                            <button type="button" class="btn btn-warning" onclick="totals_button()">Total</button>
+                            <button type="button" class="btn btn-danger" onclick="edge_button()">Edge</button>
+                            <button type="button" class="btn btn-danger" onclick="interior_button()">Interior</button>
+                        </div>
+
+                             <div id="forest-chart" class="line-charts chart-active"></div>
+                             <div id="forest-chart-edge" class="line-charts"></div>
+                             <div id="forest-chart-interior" class="line-charts"></div>
+                </div>
+            </div>
+            <div class="col-sm-2 col">
+            </div>
+        </div>
+
+        <div id="species-speal-title" class="row row-ext text-center">
+            <div class="col-lg-12 col">
+                <div class="box box-in-12">
+                        <h1>What's So Different about the Edge and the Interior?</h1>
+                </div>
+            </div>
+        </div>
+        <div id="species-speal" class="row text-center row-ext">
+            <div class="col-md-6 col speal-column">
+                <div class="speal-box box box-in-6">
+                        <div id="edge-speal">
+                            <div style="color:#55BF3B"><b>The Edge</b></div><br>
+                            <br>
+                            Total trees: 222 <br>
+                            Number of Species: 21 <br>
+                            <br>
+                            <b>Unique Edge Species:</b> <br>
+                            American elm<br>
+                            basswood<br>
+                            chestnut oak<br>
+                            quaking aspen<br>
+                            shagbark hickory<br>
+                            swamp oak<br>
+                            white ash<br>
+                            white oak<br>
+                        </div>
+                  </div>
+              </div>
+
+              <div class="col-md-6 col speal-column">
+                  <div class="speal-box box box-in-6">
+                        <div id="interior-speal">
+                            <div style="color:#55BF3B"><b>The Interior</b></div><br>
+                            <br>
+                            Total Trees: 137<br>
+                            Number of Species: 13<br>
+                            <br>
+                            <b>Unique Interior Species:</b><br>
+                            Bigtooth Aspen<br>
+                            Butternut<br>
+                            Pignut Hickory<br>
+                        </div>
+                  </div>
+              </div>
+         </div>
+
+
+        <div id="below-species" class="row break">
+            <div class="col-lg-12 col">
+            </div>
+        </div>
+
+<!-- Forest Carbon Summary-->
+        <div id="carbon" class="row text-center row-ext">
+            <div class="col-lg-8 col">
+                <div class="box box-in-8">
+                    <div id="carbChart" style="width: 600px; height: 400px; margin: 0 auto"></div>
+            		    <div>Most of the Carbon is in the Forest!</div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col">
+                <div class="box box-in-4">
+		                <div>South Forest Carbon</div>
+		                  <p>text</p>
+		                    <p>text</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="below-carbon" class="row break">
+            <div class="col-lg-12 col">
+            </div>
+        </div>
+
+<!-- Forest Historic Graphs-->
+        <div id="carbon-hist" class="row text-center row-ext">
+            <div class="col-md-4 col">
+                <div class="box box-in-4">
+		                <div>Intro</div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col">
+                <div class="box box-in-4">
+		                <div>Tree Density in South Forest Over Time</div>
+                        <img class="graph" src="img/hist-dens.jpg">
+                        <img class="graph" src="img/hist-ba.jpg">
+                </div>
+            </div>
+
+            <div class="col-md-4 col">
+                <div class="box box-in-4">
+                    <div>Intro</div>
+                </div>
+            </div>
+        </div>
+
+<!-- Break row -->
+        <div id="below-carbon-hist" class="row break">
+            <div class="col-lg-12 col">
+            </div>
+        </div>
+
+<!-- Dendrometer map-->
+        <div id="dendro" class="row text-center row-ext">
+            <div class="col-lg-8 col">
+                <div class="box box-in-8">
+		                <div>MAP HERE</div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col">
+                <div=class"box box-in-4">
+		                <div>Text</div>
+                </div>
+            </div>
+        </div>
+
+<!-- Growth Rate Charts -->
+        <div id="growth" class="row row-ext">
+            <div class="col-lg-8 col">
+                <div class="box box-in-8">
+		                <div>Graph of all growth</div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col">
+                <div class="box box-in-4">
+                    <div>Text</div>
+                </div>
+            </div>
+        </div>
+
+ <!-- Break row -->
+        <div id="below-dendro" class="row break">
+            <div class="col-lg-12 col">
+            </div>
+        </div>
+
+<!--Mo' Stuff-->
+        <div class="row text-center row-ext">
+            <div class="col-lg-8 col">
+                <div id="more" class="box box-in-8">
+		                <div>MAP HERE</div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col">
+                <div class="box box-in-4">
+		                <div>Text</div>
+                </div>
+            </div>
+        </div>
+
+  </div>
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
