@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <script src="js/jquery.js"></script>
+
+    <!--img slider-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!--highcharts and js-->
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+
+    <!-- Bootstrap JavaScript, map, and imgslider -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/imgslider.js"></script>
+
+    <title>Bare - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+    body {
+        background-color: #D0E0B9;
+        padding-top: none;
+        background-attachment: fixed;
+        font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <div class="row">
+          <div class="column-lg-12" id="banner">
+              <div id="banner-title">
+              Welcome to the SUNY New Paltz
+              <br>
+              <b>Forest</b></div>
+          </div>
+      </div>
+
+
+    <!-- Navigation -->
+    <nav id="navbar-main" class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed"
+                data-toggle="collapse" data-target="#navbar"
+                aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">South Forest</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+<!-- Title of Page -->
+
+        <div id="title" class="big-text row text-center row-ext">
+            <div class="col-lg-12 col">
+                <div class="box content-box">
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+<!-- Intro Info -->
+        <div id="intro" class="row text-center row-ext">
+          <div class="big-text">The Map.</div>
+        </div>
+
+        <div id="map-row" class="row text-center row-ext">
+            <div id="forest-map" class="col-lg-12 col">
+                <div id="googleForestMap"> </div>
+            </div>
+        </div>
+        <script async defer
+           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXTSQWNf8A5vQKk7nrAy5CoCe7YSEqg2g&callback=initMap">
+           </script>
+
+
+<!-- Break Row/add Pic? -->
+        <div id="below-intro" class="row break">
+            <div class="col-lg-12 col">
+            </div>
+        </div>
+        <!-- /.row -->
+
+<!--Species and Diversity-->
+        <div id="species-head" class="row row-ext species">
+            <div id="species-head-row"class="big-text">Species.</div>
+        </div>
+
+        <div id="species" class="row row-ext species">
+            <div class="col-sm-2 col species-info">
+                <div class="species-info" id="edge-species-info">
+                    <div class="small-text"><b>The Edge</b></div><br>
+                    <br>
+                    Total trees: 222 <br>
+                    Number of Species: 21 <br>
+                    <br>
+                    <b>Unique Edge Species:</b> <br>
+                    American elm<br>
+                    basswood<br>
+                    chestnut oak<br>
+                    quaking aspen<br>
+                    shagbark hickory<br>
+                    swamp oak<br>
+                    white ash<br>
+                    white oak<br>
+                </div>
+            </div>
+
+            <div class="col-lg-8 col" id="species-chart-selector-col">
+                <div class="box content-box">
+                    <div class="center btn-group btn-group-lg" style="margin:5px">
+                        <button type="button" class="btn btn-warning" onclick="totals_button()">Total</button>
+                        <button type="button" class="btn btn-danger" onclick="edge_button()">Edge</button>
+                        <button type="button" class="btn btn-danger" onclick="interior_button()">Interior</button>
+                    </div>
+
+                         <div id="forest-chart" class="line-charts chart-active"></div>
+                         <div id="forest-chart-edge" class="line-charts"></div>
+                         <div id="forest-chart-interior" class="line-charts"></div>
+                </div>
+            </div>
+
+            <div class="species-info col-sm-2 col">
+                <div class="species-info" id="interior-species-info">
+                    <div class="small-text"><b>The Interior</b></div><br>
+                    <br>
+                    Total Trees: 137<br>
+                    Number of Species: 13<br>
+                    <br>
+                    <b>Unique Interior Species:</b><br>
+                    Bigtooth Aspen<br>
+                    Butternut<br>
+                    Pignut Hickory<br>
+                </div>
+            </div>
+        </div>
+
+<!-- Forest Carbon Summary-->
+        <div id="carbon" class="row text-center row-ext">
+            <div class="col-lg-8 col">
+                <div class="box content-box">
+                    <div class="big-text">Carbon.</div>
+                    <div id="carbChart" style="width: 600px; height: 400px; margin: 0 auto"></div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col">
+                <div class="box content-box">
+                </div>
+            </div>
+        </div>
+
+<!--Edge Effects Bar Charts-->
+          <div id="edge-effect-head" class="row row-ext edge-effect">
+              <div class="big-text">Edge Effects.</div>
+          </div>
+
+          <div id="edge-effect" class="row text-center row-ext edge-effect">
+              <div class="col-md-5 col">
+                  <div id="density-bar-chart" class="bar-chart-sm"></div>
+                  <div id="basal-bar-chart" class="bar-chart-sm"></div>
+                </div>
+
+              <div class="col-md-7 col">
+                  <div id="carbon-bar-chart" class="bar-chart-lg"></div>
+              </div>
+          </div>
+
+<!-- Forest Historic Graphs-->
+        <div id="carbon-hist-head" class="row row-ext carbon-hist">
+            <div class="big-text">A History of the Forest.</div>
+        </div>
+
+        <div id="hist-img" class="row row-ext carbon-hist hist-img">
+          <div class="container">
+            <br>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+                <li data-target="#myCarousel" data-slide-to="5"></li>
+                <li data-target="#myCarousel" data-slide-to="6"></li>
+              </ol>
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <img src="img/2013.png" alt="2013" width="460" height="345">
+                    <div class="carousel-caption">
+                       <h3>2013</h3>
+                   </div>
+                </div>
+
+                <div class="item">
+                  <img src="img/2009.png" alt="2009" width="460" height="345">
+                    <div class="carousel-caption">
+                       <h3>2009</h3>
+                   </div>
+                </div>
+
+                <div class="item">
+                  <img src="img/2004.png" alt="2004" width="460" height="345">
+                    <div class="carousel-caption">
+                       <h3>2004</h3>
+                   </div>
+                </div>
+
+                <div class="item">
+                  <img src="img/2001-IR.png" alt="2001" width="460" height="345">
+                    <div class="carousel-caption">
+                       <h3>2001</h3>
+                    </div>
+                </div>
+
+                <div class="item">
+                  <img src="img/1994.png" alt="1994" width="460" height="345">
+                    <div class="carousel-caption">
+                       <h3>1994</h3>
+                    </div>
+                </div>
+
+                <div class="item">
+                  <img src="img/1963.png" alt="1963" width="460" height="345">
+                    <div class="carousel-caption">
+                      <h3>1963</h3>
+                    </div>
+                </div>
+
+                <div class="item">
+                  <img src="img/1958.png" alt="1958" width="460" height="345">
+                    <div class="carousel-caption">
+                       <h3>1958</h3>
+                    </div>
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+              <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div id="carbon-hist" class="row text-center row-ext carbon-hist">
+            <div class="col-md-6 col">
+                <div class="box content-box">
+                    <div id="historic-density-line-chart" class="historic-chart-active"></div>
+                </div>
+            </div>
+            <div class="col-md-6 col">
+                <div class="box content-box">
+                    <div id="historic-basal-area-line-chart" class="historic-chart-active"></div>
+                </div>
+            </div>
+        </div>
+
+<!-- Break row -->
+        <div id="below-carbon-hist" class="row break">
+            <div class="col-lg-12 col">
+            </div>
+        </div>
+
+<!-- Dendrometer map-->
+        <div id="dendro" class="row text-center row-ext">
+            <div class="col-lg-8 col">
+                <div class="box content-box">
+                </div>
+            </div>
+
+            <div class="col-md-4 col">
+                <div=class"box content-box">
+                </div>
+            </div>
+        </div>
+
+ <!-- Break row -->
+        <div id="below-dendro" class="row break">
+            <div class="col-lg-12 col">
+            </div>
+        </div>
+
+<!--Mo' Stuff-->
+        <div class="row text-center row-ext">
+            <div class="col-lg-8 col">
+                <div id="more" class="box content-box">
+                </div>
+            </div>
+
+            <div class="col-md-4 col">
+                <div class="box content-box">
+                </div>
+            </div>
+        </div>
+
+<!-- pre for csv data for graphs-->
+                            <pre id="tree-data" style="display: none;">
+                            Species, Abundance
+                            American beech,0.5855855856
+                            ostrya,0.3513513514
+                            carpinus,0.1081081081
+                            witch-hazel,0.1036036036
+                            black oak,0.0585585586
+                            juneberry,0.0540540541
+                            red maple,0.045045045
+                            sugar maple,0.045045045
+                            eastern hemlock,0.0405405405
+                            American elm,0.036036036
+                            sweet birch,0.036036036
+                            red oak,0.027027027
+                            unknown,0.0225225225
+                            white oak,0.0225225225
+                            white ash,0.018018018
+                            basswood,0.0135135135
+                            pignut hickory,0.009009009
+                            sassafrass,0.009009009
+                            swamp oak,0.009009009
+                            bigtooth aspen,0.0045045045
+                            butternut,0.0045045045
+                            chestnut oak,0.0045045045
+                            quaking aspen,0.0045045045
+                            shagbark hickory,0.0045045045
+                            </pre>
+
+                            <pre id="tree-data-edge" style="display: none;">
+                            Species,Edge
+                            American beech,0.3738738739
+                            ostrya,0.1711711712
+                            witch-hazel,0.0945945946
+                            carpinus,0.0720720721
+                            black oak,0.0495495495
+                            red maple,0.0405405405
+                            American elm,0.036036036
+                            juneberry,0.0315315315
+                            red oak,0.0225225225
+                            white oak,0.0225225225
+                            white ash,0.018018018
+                            basswood,0.0135135135
+                            unknown,0.0135135135
+                            swamp oak,0.009009009
+                            chestnut oak,0.0045045045
+                            eastern hemlock,0.0045045045
+                            quaking aspen,0.0045045045
+                            sassafrass,0.0045045045
+                            shagbark hickory,0.0045045045
+                            sugar maple,0.0045045045
+                            sweet birch,0.0045045045
+                            bigtooth aspen,
+                            butternut,
+                            pignut hickory,
+                            </pre>
+
+                            <pre id="tree-data-interior" style="display:none;">
+                            Species,Interior
+                            American beech,0.3430656934
+                            ostrya,0.2919708029
+                            sugar maple,0.0656934307
+                            carpinus,0.0583941606
+                            eastern hemlock,0.0583941606
+                            sweet birch,0.0510948905
+                            juneberry,0.0364963504
+                            black oak,0.0145985401
+                            pignut hickory,0.0145985401
+                            unknown,0.0145985401
+                            witch-hazel,0.0145985401
+                            bigtooth aspen,0.0072992701
+                            butternut,0.0072992701
+                            red maple,0.0072992701
+                            red oak,0.0072992701
+                            sassafrass,0.0072992701
+                            American elm,
+                            basswood,
+                            chestnut oak,
+                            quaking aspen,
+                            shagbark hickory,
+                            swamp oak,
+                            white ash,
+                            white oak,
+                            </pre>
+
+                            <pre id="historic-density-line-data" style="display:none;">
+                              year,density (trees/Ha)
+                              1974,731.7266667
+                              1975,768.031746
+                              1976,881.0793651
+                              1977,943.7777778
+                              1978,1008.857143
+                              1979,1013.619048
+                              1980,1007.873016
+                              1981,921.2063492
+                              1982,889.4920635
+                              1983,873.2698413
+                              1984,831.6190476
+                              1985,895.7142857
+                              1986,921.7380952
+                              1987,917.0873016
+                              1988,874.2619048
+                              1989,884.9285714
+                              1990,828.8571429
+                              1991,840.9285714
+                              1992,838.8392857
+                              1993,921.1011905
+                              1994,958.0059524
+                              1995,1013.095238
+                              1996,1018.750000
+                              1997,1013.095238
+                              1998,1020.238095
+                              1999,1055.000000
+                              2000,1006.095238
+                              2001,1005.535714
+                              2002,1031.428571
+                              2003,1067.142857
+                              2004,1003.452381
+                              2005,1021.130952
+                              2006,1024.047619
+                              2007,1024.285714
+                              2008,1016.666667
+                              2009,1038.690476
+                              2010,1089.500000
+                            </pre>
+
+                            <pre id="historic-basal-area-line-data" style="display:none;">
+                              year,basal area
+                              1974,32.23074063
+                              1975,34.7235873
+                              1976,39.09590476
+                              1977,36.29939683
+                              1978,37.50409524
+                              1979,36.9104127
+                              1980,34.37422222
+                              1981,29.82904762
+                              1982,26.70488889
+                              1983,27.9527619
+                              1984,28.93754762
+                              1985,33.87480952
+                              1986,35.75169048
+                              1987,39.79264286
+                              1988,36.50126984
+                              1989,38.6215
+                              1990,37.88230952
+                              1991,34.35019048
+                              1992,31.32738095
+                              1993,34.18110119
+                              1994,33.05229167
+                              1995,32.72220238
+                              1996,33.05883929
+                              1997,32.5092619
+                              1998,30.67102381
+                              1999,27.83702381
+                              2000,28.02452381
+                              2001,29.28735119
+                              2002,29.02574405
+                              2003,34.44291667
+                              2004,38.93857143
+                              2005,42.6058631
+                              2006,42.39642857
+                              2007,45.52590476
+                              2008,45.08111905
+                              2009,46.04241071
+                              2010,43.31686508
+                            </pre>
+
+                            <pre id="carbon-bar-data" style="display:none;">
+                            Forest Area, Carbon(kg/sqm)
+                            Interior,11.2
+                            Edge,13.7
+                            </pre>
+
+                            <pre id="density-bar-data" style="display:none;">
+                            Forest Area, Carbon(kg/sqm)
+                            Interior,1141
+                            Edge,1850
+                            </pre>
+
+                            <pre id="basal-bar-data" style="display:none;">
+                            Forest Area, Carbon(kg/sqm)
+                            Interior,36.7
+                            Edge,45.4
+                            </pre>
+
+  </div>
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
