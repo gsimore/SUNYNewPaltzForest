@@ -1,5 +1,4 @@
 
-
 function initMap() {
   var map = new google.maps.Map(document.getElementById('googleForestMap'), {
     center: {lat: 41.73281, lng: -74.08724},
