@@ -1,19 +1,42 @@
-#banner {
-  background-color: #130707;
-}
-#banner-title {
-  font-size: 2.5em;
-  text-align: center;
-  color: white;
+
+
+
+/*Styles for page elements, nesting boxes, and fonts*/
+
+.extra-big-text{
+  font-size: 500%;
 }
 
-#googleForestMap {
-  height: 500px;
-  width: 100%;
-  border: 10px;
-  border-color: black;
-  color: #8d4654;
+.big-text {
+  font-size: 300%;
 }
+
+.small-text {
+  font-size: 1.0em;
+}
+
+.break {
+    background-color: none;
+    color: #ffffff;
+}
+
+.row-ext {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: none;
+}
+
+.head-row {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.col {
+
+}
+
 .box {
     margin: 0;
     padding: 5px;
@@ -21,82 +44,60 @@
     color: #ffffff;
 }
 
-.line-charts {
-  min-width: 919px;
-  height: 400px;
-  margin: 0 auto;
-  display: none;
-}
-
-.chart-active {
-  min-width: 919px;
-  height: 400px;
-  margin: 0 auto;
-  display: block;
-}
-
-#box-1 {
-    background-color: none;
-
-}
-.box-in-4 {
+.content-box {
 
 }
 
-.box-in-8 {
+/*navigation bar styles*/
 
+#navbar-main {
+  margin-bottom: 0;
+  background-color: #391101;
+  border-color: #260B00;
 }
 
-.box-in-3 {
+/* Styles for content sections*/
 
+#banner-background {
+  background-image: url("../img/treeline.jpg");
+  background-size: 100% 350px;
 }
 
-.box-in-9 {
-
+#banner {
+  height: 350px;
+  opacity: 0.50;
+  background: #f0b7a1; /* Old browsers */
+  background: -moz-linear-gradient(45deg, #8c3310 0%, #752201 64%, #1B1B1B 99%, #bf6e4e 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #8c3310 0%,#752201 64%,#1B1B1B 99%,#bf6e4e 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, #8c3310 0%,#752201 64%,#1B1B1B 99%,#bf6e4e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8c3310', endColorstr='#bf6e4e',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  padding-top: 100px;
 }
 
-.font-class-1 {
-    color: #ffffff;
-
+#banner-title {
+  font-size: 3.5em;
+  text-align: center;
+  color: white;
+  opacity: 1.0;
 }
 
 #title {
-    height: inherit;
-    color: #ffffff;
-    font-size: 50px;
-}
-
-#intro {
-    background-color: none;
+    background-image: url("../img/forestlight.jpg");
+    height: 350px;
     color: #ffffff;
 }
 
-#species1 {
-    background-color: none;
-    color: #ffffff;
+#googleForestMap {
+  height: 500px;
+  width: 100%;
+  border: 10px;
+  border-color: black;
+  margin: 5px;
+  color: #8d4654;
 }
 
-#species2 {
-    background-color: none;
-    color: #ffffff;
-}
-
-.speal-box {
-  height: 400px;
-}
-
-.speal-column {
-  height: 100%;
-}
-
-#carbon {
-    background-color: none;
-    color: #ffffff;
-}
-
-#carbon-hist {
-    background-color: none;
-    color: #ffffff;
+#map-info {
+  padding: 20px;
 }
 
 #dendro {
@@ -104,32 +105,101 @@
     color: #ffffff;
 }
 
-#growth {
-    background-color: none;
+#species-head {
+    background-image: url("../img/bark.jpg");
+    height: 500px;
     color: #ffffff;
 }
+
+.species {
+    background-color: #110006;
+    color: white;
+}
+
+#species-chart-selector-col {
+    padding-bottom: 20px;
+}
+
+.line-charts {
+  min-width: 65%;
+  height: 400px;
+  margin: 0 auto;
+  display: none;
+}
+
+.chart-active {
+  min-width: 65%;
+  height: 400px;
+  margin: 0 auto;
+  display: block;
+}
+
+.species-info {
+  padding-top: 20px;
+  min-height: 100%;
+}
+
+#carbon-head {
+  background-image: url("../img/brownleaf.jpg");
+  background-size: 100% 600px;
+  height: 500px;
+  color: #ffffff;
+}
+
+#carbon {
+    background-color: #280600;
+    color: #ffffff;
+}
+
+#edge-effect-head {
+  background-image: url("../img/glow.jpg");
+  background-size: 100% 600px;
+  height: 500px;
+  color: #ffffff;
+}
+
+.edge-effect {
+    background-color: #BDAC18;
+}
+
+.bar-chart-sm {
+  width: 80%;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.bar-chart-lg {
+  min-width: 60%
+}
+
+#carbon-hist-head {
+  background-image: url("../img/treering.jpg");
+  background-size: 100% 600px;
+  height: 500px;
+  color: #ffffff;
+}
+
+.carbon-hist {
+    background-color: #3C2323;
+    color: #ffffff;
+}
+
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      height: 500px;
+      margin: auto;
+  }
+
+/*historic-charts*/
+.historic-chart-active {
+  min-width: 40%;
+  margin: 10px;
+}
+
 
 #more {
     background-color: none;
     height: 200px;
     color: #ffffff;
-}
-
-.break {
-    background-color: none;
-    height: 200px;
-    color: #ffffff;
-}
-
-.row-ext {
-    padding: 0;
-    background-color: #7798BF;
-}
-
-.col {
-
-}
-
-.graph {
-    margin: 10px;
 }

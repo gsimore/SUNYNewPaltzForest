@@ -1,0 +1,174 @@
+/*Styles for page elements, nesting boxes, and fonts*/
+
+.extra-big-text{
+  font-size: 500%;
+}
+
+.big-text {
+  font-size: 250%;
+}
+
+.small-text {
+  font-size: 1.0em;
+}
+
+.break {
+    background-color: none;
+    color: #ffffff;
+}
+
+.row-ext {
+    padding: 0;
+    margin-left: 30px;
+    margin-right: 30px;
+    background-color: none;
+}
+
+.col {
+
+}
+
+.box {
+    margin: 0;
+    padding: 5px;
+    background: none;
+    color: #ffffff;
+}
+
+.content-box {
+
+}
+
+/*navigation bar styles*/
+
+#navbar-main {
+
+}
+
+/* Styles for content sections*/
+
+#banner {
+  height: 350px;
+  opacity: 0.90;
+  background: #f0b7a1; /* Old browsers */
+  background: -moz-linear-gradient(45deg, #8c3310 0%, #752201 64%, #1B1B1B 99%, #bf6e4e 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #8c3310 0%,#752201 64%,#1B1B1B 99%,#bf6e4e 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, #8c3310 0%,#752201 64%,#1B1B1B 99%,#bf6e4e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8c3310', endColorstr='#bf6e4e',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+#banner-title {
+  font-size: 3.5em;
+  text-align: center;
+  color: white;
+}
+
+#map {
+  height: 500px;
+  width: 100%;
+  border: 10px;
+  border-color: black;
+  margin: 0;
+  color: #8d4654;
+}
+
+#infowindow_template {
+  background-color: blue;
+}
+
+#title {
+    height: inherit;
+    color: #ffffff;
+    font-size: 50px;
+}
+
+#intro {
+    background-color: none;
+    color: #ffffff;
+}
+
+.species {
+    background-color: #806F52;
+    padding-top: 20px;
+    color: white;
+}
+
+#species-head-row {
+  margin-right: 30px;
+  margin-left: 30px;
+  border-bottom: solid 1px white;
+}
+
+#species-chart-selector-col {
+    padding-bottom: 20px;
+}
+
+.line-charts {
+  min-width: 65%;
+  height: 400px;
+  margin: 0 auto;
+  display: none;
+}
+
+.chart-active {
+  min-width: 65%;
+  height: 400px;
+  margin: 0 auto;
+  display: block;
+}
+
+.species-info {
+  padding-top: 20px;
+  min-height: 100%;
+}
+
+#carbon {
+    padding: 30px;
+    background-color: #809689;
+    color: #ffffff;
+}
+
+.edge-effect {
+    background-color: #CDE26C;
+    padding: 20px;
+}
+
+.bar-chart-sm {
+  width: 80%;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.bar-chart-lg {
+  min-width: 60%
+}
+
+.carbon-hist {
+    background-color: #3C2323;
+    color: #ffffff;
+    padding: 30px;
+}
+
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      height: 500px;
+      margin: auto;
+  }
+
+/*historic-charts*/
+.historic-chart-active {
+  min-width: 40%;
+  margin: 10px;
+}
+
+#dendro {
+    background-color: none;
+    color: #ffffff;
+}
+
+#more {
+    background-color: none;
+    height: 200px;
+    color: #ffffff;
+}

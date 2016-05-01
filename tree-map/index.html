@@ -11,6 +11,15 @@
 
     <script src="js/jquery.js"></script>
 
+  <!--tree growth charts-->
+	  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <!--google map js file-->
+    <script src="js/map.js"></script>
+
+  <!--img slider-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <!--highcharts and js-->
 
@@ -20,7 +29,11 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+<<<<<<< Updated upstream
     <script src="js/map.js"></script>
+=======
+
+>>>>>>> Stashed changes
     <title>Bare - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
@@ -30,11 +43,17 @@
     <!-- Custom CSS -->
     <style>
     body {
+<<<<<<< Updated upstream
         background-color: #381A00;
         background-image: url(img/brown-leaf.jpg);
         background-repeat: no-repeat;
         padding-top: none;
         background-attachment: fixed;
+=======
+        background-color: #D1CC70;
+        padding-top: none;
+        font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+>>>>>>> Stashed changes
         /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
     }
 
@@ -50,8 +69,56 @@
 </head>
 
 <body>
+<<<<<<< Updated upstream
       <div class="column-lg-12" id="banner">
           <div class="row">
+=======
+
+  <nav id="cd-vertical-nav">
+		<ul>
+			<li>
+				<a href="#section1" data-number="1">
+					<span class="cd-dot"></span>
+					<span class="cd-label">Intro</span>
+				</a>
+			</li>
+			<li>
+				<a href="#section2" data-number="2">
+					<span class="cd-dot"></span>
+					<span class="cd-label">About</span>
+				</a>
+			</li>
+			<li>
+				<a href="#section3" data-number="3">
+					<span class="cd-dot"></span>
+					<span class="cd-label">Features</span>
+				</a>
+			</li>
+			<li>
+				<a href="#section4" data-number="4">
+					<span class="cd-dot"></span>
+					<span class="cd-label">Portfolio</span>
+				</a>
+			</li>
+			<li>
+				<a href="#section5" data-number="5">
+					<span class="cd-dot"></span>
+					<span class="cd-label">Pricing</span>
+				</a>
+			</li>
+			<li>
+				<a href="#section6" data-number="6">
+					<span class="cd-dot"></span>
+					<span class="cd-label">Contact</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+	<a class="cd-nav-trigger cd-img-replace">Open navigation<span></span></a>
+
+    <div id="banner-background" class="row">
+          <div class="column-lg-12" id="banner">
+>>>>>>> Stashed changes
               <div id="banner-title">
               <br>
               <br>
@@ -97,21 +164,251 @@
 
 <!-- Title of Page -->
 
+<<<<<<< Updated upstream
         <div id="title" class="row text-center row-ext">
             <div class="col-lg-12 col">
                 <div id="box-1" class="box">South Forest</div>
+=======
+        <div id="title" class="small-text row text-center row-ext">
+            <div class="col-lg-12 col">
+                <div class="box content-box">
+                    <div> Forests are important. <br>
+                      Forests clean our water, air, moderate local climate and provide pollution abatement and wildlife management.<br>
+                      Here is a glimpse at our small, but valuable forest;<br>
+                      what we are studying in it, and what it's doing for us.  </div>
+                </div>
+>>>>>>> Stashed changes
             </div>
         </div>
         <!-- /.row -->
 
+<<<<<<< Updated upstream
 <!-- Intro Info -->
         <div id="intro" class="row text-center row-ext">
             <div class="col-md-4 col">
 		              <div class="box box-in-12">
                       <div>Welcome to SUNY New Paltz's South Forest.</div>
                   </div>
+=======
+<!--google map-->
+        <div id="map-row" class="row text-center row-ext">
+            <div id="forest-map" class="col-lg-8 col">
+                <div id="googleForestMap"> </div>
             </div>
 
+            <div id="map-info" class="small-text col-sm-4">
+                <div>Click on points on the map to see the growth of individual trees over time. <br>
+                  These trees have <b>dendrometers</b> on them; <br>
+                  a narrow band of metal containing a spring that creates a measurable gap as the tree grows. <br>
+                  This way, we can see how much a tree has grown since it has been banded.</div>
+            </div>
+        </div>
+
+        <script async defer
+           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXTSQWNf8A5vQKk7nrAy5CoCe7YSEqg2g&callback=initMap">
+                 </script>
+
+       <div id="dendro" class="row text-center row-ext">
+           <div id="dendro-col" class="col-lg-12 col">
+          </div>
+        </div>
+
+<!--Species and Diversity-->
+        <div id="species-head" class="head-row row row-ext species">
+            <div id="species-head-row"class="big-text">Species.</div>
+        </div>
+
+        <div id="species" class="row row-ext species">
+            <div class="col-sm-2 col species-info">
+                <div class="species-info" id="edge-species-info">
+                    <div class="small-text"><b>The Edge</b></div><br>
+                    <br>
+                    Total trees: 222 <br>
+                    Number of Species: 21 <br>
+                    <br>
+                    <b>Unique Species:</b> <br>
+                    American elm<br>
+                    Basswood<br>
+                    Chestnut Oak<br>
+                    Quaking Aspen<br>
+                    Shagbark Hickory<br>
+                    Swamp Oak<br>
+                    White Ash<br>
+                    White Oak<br>
+                </div>
+            </div>
+
+            <div class="col-lg-8 col" id="species-chart-selector-col">
+                <div class="box content-box">
+                    <div class="center btn-group btn-group-lg" style="margin:5px">
+                        <button type="button" class="btn btn-warning" onclick="totals_button()">Total</button>
+                        <button type="button" class="btn btn-danger" onclick="edge_button()">Edge</button>
+                        <button type="button" class="btn btn-danger" onclick="interior_button()">Interior</button>
+                    </div>
+
+                         <div id="forest-chart" class="line-charts chart-active"></div>
+                         <div id="forest-chart-edge" class="line-charts"></div>
+                         <div id="forest-chart-interior" class="line-charts"></div>
+                </div>
+            </div>
+
+            <div class="species-info col-sm-2 col">
+                <div class="species-info" id="interior-species-info">
+                    <div class="small-text"><b>The Interior</b></div><br>
+                    <br>
+                    Total Trees: 137<br>
+                    Number of Species: 13<br>
+                    <br>
+                    <b>Unique Species:</b><br>
+                    Bigtooth Aspen<br>
+                    Butternut<br>
+                    Pignut Hickory<br>
+                </div>
+            </div>
+        </div>
+
+<!-- Forest Carbon Summary-->
+        <div id="carbon-head" class="row head-row row-ext">
+            <div class="col-lg-12">
+                <div class="big-text">Carbon.</div>
+            </div>
+        </div>
+
+        <div id="carbon" class="row text-center row-ext">
+            <div class="col-lg-8 col">
+                <div class="box content-box">
+                    <div id="carbChart" style="width: 600px; height: 400px; margin: 0 auto"></div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col">
+                <div class="box content-box">
+                    <div> Let's look at the forest for the trees. <br>
+                          No, really. Just the trees. <br>
+                          When we look at the number and size of all of the tree species we've sampled in the forest, <br>
+                          we can look at which species account for the most carbon. This is calculated from something called their <br>
+                          Above Ground Biomass; an assumption based off of the trees diameter. <br>
+                          It looks like the mighty red and black oaks are the winners for storing our carbon.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--Edge Effects Bar Charts-->
+        <div id="edge-effect-head" class="head-row row row-ext edge-effect">
+            <div class="col-lg-12">
+                <div class="big-text">Edge Effects.</div>
+            </div>
+        </div>
+
+        <div id="edge-effect" class="row text-center row-ext edge-effect">
+            <div class="col-md-5 col">
+                <div id="density-bar-chart" class="bar-chart-sm"></div>
+                <div id="basal-bar-chart" class="bar-chart-sm"></div>
+              </div>
+
+            <div class="col-md-7 col">
+                <div id="carbon-bar-chart" class="bar-chart-lg"></div>
+            </div>
+        </div>
+
+<!-- Historic South Forest-->
+        <div id="carbon-hist-head" class="head-row row row-ext carbon-hist">
+            <div class="big-text">Looking Back.</div>
+            <div class="small-text">We've been monitoring our forest for a while. <br>
+                                    Here is what we've seen since 1972. </div>
+        </div>
+
+<!--Image carousel-->
+        <div id="hist-img" class="row row-ext carbon-hist hist-img">
+          <div class="container">
+            <br>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+                <li data-target="#myCarousel" data-slide-to="5"></li>
+                <li data-target="#myCarousel" data-slide-to="6"></li>
+              </ol>
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <img src="img/2013.png" alt="2013" width="460" height="345">
+                    <div class="carousel-caption">
+                       <h3>2013</h3>
+                   </div>
+                </div>
+
+                <div class="item">
+                  <img src="img/2009.png" alt="2009" width="460" height="345">
+                    <div class="carousel-caption">
+                       <h3>2009</h3>
+                   </div>
+                </div>
+
+                <div class="item">
+                  <img src="img/2004.png" alt="2004" width="460" height="345">
+                    <div class="carousel-caption">
+                       <h3>2004</h3>
+                   </div>
+                </div>
+
+                <div class="item">
+                  <img src="img/2001-IR.png" alt="2001" width="460" height="345">
+                    <div class="carousel-caption">
+                       <h3>2001</h3>
+                    </div>
+                </div>
+
+                <div class="item">
+                  <img src="img/1994.png" alt="1994" width="460" height="345">
+                    <div class="carousel-caption">
+                       <h3>1994</h3>
+                    </div>
+                </div>
+
+                <div class="item">
+                  <img src="img/1963.png" alt="1963" width="460" height="345">
+                    <div class="carousel-caption">
+                      <h3>1963</h3>
+                    </div>
+                </div>
+
+                <div class="item">
+                  <img src="img/1958.png" alt="1958" width="460" height="345">
+                    <div class="carousel-caption">
+                       <h3>1958</h3>
+                    </div>
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+              <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div id="carbon-hist" class="row text-center row-ext carbon-hist">
+            <div class="col-md-6 col">
+                <div class="box content-box">
+                    <div id="historic-density-line-chart" class="historic-chart-active"></div>
+                </div>
+>>>>>>> Stashed changes
+            </div>
+
+<<<<<<< Updated upstream
             <div class="col-md-4 col">
                 <div class="box box-in-4">
                   <div>Photo?</div>
@@ -133,6 +430,14 @@
            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXTSQWNf8A5vQKk7nrAy5CoCe7YSEqg2g&callback=initMap">
            </script>
 
+=======
+<!--Mo' Stuff-->
+        <div class="row text-center row-ext">
+            <div class="col-lg-8 col">
+                <div id="more" class="box content-box">
+                </div>
+            </div>
+>>>>>>> Stashed changes
 
 <!-- Break Row/add Pic? -->
         <div id="below-intro" class="row break">
@@ -401,7 +706,7 @@
         </div>
 
   </div>
-<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/forest.js"></script>
 </body>
 
 </html>
