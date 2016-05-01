@@ -18,7 +18,7 @@ jQuery(document).ready(function($) {
 });
 
 Highcharts.createElement('link', {
-   href: 'http://fonts.googleapis.com/css?family=Signika:400,700',
+   href: '//fonts.googleapis.com/css?family=Signika:400,700',
    rel: 'stylesheet',
    type: 'text/css'
 }, null, document.getElementsByTagName('head')[0]);
@@ -32,8 +32,8 @@ Highcharts.wrap(Highcharts.Chart.prototype, 'getContainer', function (proceed) {
 
 
 Highcharts.theme = {
-   colors: ["#BB3C1E", "#392E46", "#1F223A", "#2D4A34", "#AFD14C", "#D33614", "#395340",
-      "#55BF3B", "#653323", "#7798BF", "#93D14C"],
+   colors: ["#f45b5b", "#8085e9", "#8d4654", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
+      "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
    chart: {
       backgroundColor: null,
       style: {
@@ -42,7 +42,7 @@ Highcharts.theme = {
    },
    title: {
       style: {
-         color: '#1F223A',
+         color: '#f45b5b',
          fontSize: '16px',
          fontWeight: 'bold'
       }
@@ -308,163 +308,11 @@ function lineChartInterior(csv) {
     yAxis: {
       title: {
         text: 'Relative Abundance'
-      },
-    },
+      }
+    }
   });
 };
 
 lineChart(tree_data);
 lineChartEdge(tree_data_edge);
 lineChartInterior(tree_data_interior);
-
-var totals_chart = $("#forest-chart");
-var edge_chart = $("#forest-chart-edge");
-var interior_chart = $("#forest-chart-interior");
-
-function totals_button() {
-  totals_chart.show("#forest-chart");
-  edge_chart.hide("#forest-chart-edge");
-  interior_chart.hide("#forest-chart-interior");
-};
-
-function edge_button() {
-  totals_chart.hide("#forest-chart");
-  edge_chart.show("#forest-chart-edge");
-  interior_chart.hide("#forest-chart-interior");
-};
-
-function interior_button() {
-  totals_chart.hide("#forest-chart");
-  edge_chart.hide("#forest-chart-edge");
-  interior_chart.show("#forest-chart-interior");
-};
-
-//total
-var bar_density = document.getElementById('density-bar-data').innerHTML;
-var bar_BA = document.getElementById('basal-bar-data').innerHTML;
-var bar_Carbon = document.getElementById('carbon-bar-data').innerHTML;
-
-function DensityBarChart(csv) {
-  $('#density-bar-chart').highcharts({
-    chart: {
-      type: 'bar'
-    },
-    data: {
-      csv: csv,
-    },
-    title: {
-      text: 'Tree Density'
-    },
-    subtitle: {
-            text: 'South Forest Edge vs. Interior',
-    },
-    yAxis: {
-      title: {
-        text: 'Density (Trees/Ha)'
-      },
-    },
-    //plotOptions: {
-      //column:{
-        //color: '#8085e9',
-      //},
-    //},
-  });
-};
-
-//edge
-function BasalBarChart(csv) {
-  $('#basal-bar-chart').highcharts({
-    chart: {
-      type: 'bar'
-    },
-    data: {
-      csv: csv
-    },
-    title: {
-      text: 'Basal Area'
-    },
-    subtitle: {
-            text: 'South Forest Edge vs. Interior',
-    },
-    yAxis: {
-      title: {
-        text: 'Basal Area (sqm/Ha)'
-      }
-    }
-  });
-};
-
-//interior
-function CarbonBarChart(csv) {
-  $('#carbon-bar-chart').highcharts({
-    chart: {
-      type: 'bar'
-    },
-    data: {
-      csv: csv
-    },
-    title: {
-      text: 'Carbon',
-    },
-    subtitle: {
-            text: 'South Forest Edge vs. Interior',
-    },
-    yAxis: {
-      title: {
-        text: 'Carbon density (kg/sqm)'
-      },
-    },
-  });
-};
-
-DensityBarChart(bar_density);
-BasalBarChart(bar_BA);
-CarbonBarChart(bar_Carbon);
-
-
-
-var historic_density = document.getElementById('historic-density-line-data').innerHTML;
-var historic_basal = document.getElementById('historic-basal-area-line-data').innerHTML;
-
-//density chart
-function HistoricDensityLineChart(csv) {
-  $('#historic-density-line-chart').highcharts({
-    data: {
-      csv: csv,
-    },
-    title: {
-      text: 'Tree Density from 1972-present'
-    },
-    subtitle: {
-            text: 'South Forest',
-    },
-    yAxis: {
-      title: {
-        text: 'Density (sqm/Ha)'
-      }
-    }
-  });
-};
-
-//basal area chart
-function HistoricBasalLineChart(csv) {
-  $('#historic-basal-area-line-chart').highcharts({
-    data: {
-      csv: csv
-    },
-    title: {
-      text: 'Basal Area (1972-present)'
-    },
-    subtitle: {
-            text: 'South Forest',
-    },
-    yAxis: {
-      title: {
-        text: 'Relative Abundance'
-      }
-    }
-  });
-};
-
-HistoricDensityLineChart(historic_density);
-HistoricBasalLineChart(historic_basal);
