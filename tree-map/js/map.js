@@ -1,5 +1,8 @@
 var map;
 var layer;
+var forestPlots;
+var uniqueTrees;
+var forestArea;
 var tID;
 var infoWindow;
 var chart;
@@ -13,14 +16,21 @@ var optionsSet = false;
 function initMap() {
   map = new google.maps.Map(document.getElementById('googleForestMap'), {
     center: {lat: 41.73281, lng: -74.08724},
-    zoom: 18,
+    zoom: 17,
     mapTypeId: google.maps.MapTypeId.SATELLITE,
     heading: 90,
     tilt: 45
   });
 
   infoWindow = new google.maps.InfoWindow();
-//add fusion tables layer
+
+//uniquetrees
+  document.getElementById("dendrometerTrees").checked = true;
+	document.getElementById("uniqueSpp").checked = false;
+	document.getElementById("checkForestArea").checked = false;
+  document.getElementById("checkForestPlots").checked = false;
+
+//add fusion tables layers
   layer = new google.maps.FusionTablesLayer({
     styleId: 2,
     templateId: 2,
@@ -29,31 +39,87 @@ function initMap() {
       select: '"diameter (cm)"',
       from: '1owAo1SdifnYY7hV6s6EqJWQ9k4u4Hv-A2mxRakqu',
     },
-      styles: [{
-      where: '"diameter (cm)" >30',
-      markerOptions: {
-        iconName: 'Itblu_blank',
-      }
-    }]
   });
+
+  forestArea = new google.maps.FusionTablesLayer({
+    styleId: 2,
+    templateId: 2,
+    suppressInfoWindows: false,
+    query: {
+      select: '"name"',
+      from: '1j5feXhx_RB41-5wTnu_XbLZ5Ex1RuRbB2typVH4O',
+    },
+  });
+
+  uniqueTrees = new google.maps.FusionTablesLayer({
+    styleId: 2,
+    templateId: 2,
+    suppressInfoWindows: false,
+    query: {
+      select: '"id"',
+      from: '112nV7QTQ0p-jmfres_qpaPna_CgR-QGMR7RBer4o',
+    },
+  });
+
+  forestPlots = new google.maps.FusionTablesLayer({
+    styleId: 2,
+    templateId: 2,
+    suppressInfoWindows: false,
+    query: {
+      select: '"plot_id"',
+      from: '1TNY9gc81gvE-0tcXXb9HTeEwqOSTryELyXl2CQAR',
+    },
+  });
+
+  dendroToggle = function(){
+    if (document.getElementById('dendrometerTrees').checked)
+    {layer.setMap(map);}
+    else
+    {layer.setMap(null);}
+  };
+
+  uniqueSppToggle = function(){
+    if (document.getElementById('uniqueSpp').checked)
+    {uniqueTrees.setMap(map);}
+    else
+    {uniqueTrees.setMap(null);}
+  };
+
+  forestAreaToggle = function(){
+    if (document.getElementById('checkForestArea').checked)
+    {forestArea.setMap(map);}
+    else
+    {forestArea.setMap(null);}
+  };
+
+  forestPlotsToggle = function(){
+    if (document.getElementById('checkForestPlots').checked)
+    {forestPlots.setMap(map);}
+    else
+    {forestPlots.setMap(null);}
+  };
 
   google.maps.event.addListener(layer, "click", openIW);
 
   layer.setMap(map);
 };
 
+
 function openIW(FTevent) {
-    lat = FTevent.row['Latitude'].value;
-    lon = FTevent.row['Longitude'].value;
-    tID = FTevent.row['TreeID'].value;
+
+  lat = FTevent.row['Latitude'].value;
+  lon = FTevent.row['Longitude'].value;
+  tID = FTevent.row['TreeID'].value;
+
   infoWindow.setOptions({
-    content: FTevent.infoWindowHtml +
-      '<div id="infoWindowChart" style="width:300px; height:200px"></div>',
-      position: FTevent.latLng,
-      pixelOffset: FTevent.pixelOffset
+    content: FTevent.infoWindowHtml + '<div class="map-info-window"><div id="infoWindowChart"></div></div>',
+    position: FTevent.latLng,
+    pixelOffset: FTevent.pixelOffset,
+
   });
-initializeChart(tID);
-infoWindow.open(map);
+
+  initializeChart(tID);
+  infoWindow.open(map);
 
 };
 
@@ -99,22 +165,26 @@ function handleQueryResponse(response)
 
 	chart.draw(data, {
 		"title": "Tree Growth/Time",
-		"backgroundColor": "#EEE",
+		"backgroundColor": "none",
 		"hAxis": {
 			title: "Date",
 			titleTextStyle: {
-				color: "red"
+				color: "#3C2323"
 			},
 			slantedText: true,
-			slantedTextAngle: 90
+			slantedTextAngle: 45,
 		},
 		"vAxis": {
 			title: "Diameter (cm)",
 			titleTextStyle: {
-				color: "red"
+				color: "#3C2323"
 			},
 		},
-		"pointSize": 5
+		"pointSize": 5,
+    "legend": {
+      position: 'top'
+    },
+    "colors": ['#144333', '#3C2323', '#391101']
 	});
 }
 

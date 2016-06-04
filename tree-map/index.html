@@ -40,7 +40,6 @@
     body {
         background-color: #D1CC70;
         padding-top: none;
-        font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
         /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
     }
 
@@ -58,13 +57,8 @@
 <body>
   <div id="banner-background" class="row">
           <div class="column-lg-12" id="banner">
-
               <div id="banner-title">
-              <br>
-              <br>
-              <br>
-              <br>
-                South Forest </div>
+                <span class="large-letter">S</span>outh Forest</div>
           </div>
       </div>
 
@@ -72,11 +66,14 @@
     <nav id="navbar-main" class="navbar navbar-inverse" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
+            <div class="nav navbar-header">
                 <button type="button" class="navbar-toggle collapsed"
                 data-toggle="collapse" data-target="#navbar"
                 aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -85,17 +82,28 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar">
+              <nav>
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">Home</a>
+                        <a href="#map-scroll">Map</a>
                     </li>
                     <li>
-                        <a href="#">About</a>
+                        <a href="#species-scroll">Species</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="#carbon-scroll">Carbon</a>
+                    </li>
+                    <li>
+                        <a href="#edge-scroll">Edge Effects</a>
+                    </li>
+                    <li>
+                        <a href="#history-scroll">History</a>
+                    </li>
+                    <li>
+                        <a href="#acknowledgements-scroll">Acknowledgements</a>
                     </li>
                 </ul>
+              </nav>
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -103,32 +111,41 @@
     </nav>
 
 <!-- Title of Page -->
-
         <div id="title" class="small-text row text-center row-ext">
             <div class="col-lg-12 col">
                 <div class="box content-box">
-                    <div> Forests are important. <br>
-                      Forests clean our water, air, moderate local climate and provide pollution abatement and wildlife management.<br>
+                    <div class="big-text" style="font-family: tree; color: #EB8865;"> Forests are important. <br></div>
+                  <div>Forests clean our water, air, moderate local climate and provide pollution abatement and wildlife management.<br>
                       Here is a glimpse at our small, but valuable forest;<br>
                       what we are studying in it, and what it's doing for us.  </div>
                 </div>
-
             </div>
         </div>
-        <!-- /.row -->
-
 
 <!--google map-->
-        <div id="map-row" class="row text-center row-ext">
-            <div id="forest-map" class="col-lg-8 col">
-                <div id="googleForestMap"> </div>
-            </div>
+    <Section id="map-scroll">
+        <div id="map-row" class="row text-center">
+            <div id="googleForestMap"> </div>
 
-            <div id="map-info" class="small-text col-sm-4">
-                <div>Click on points on the map to see the growth of individual trees over time. <br>
-                  These trees have <b>dendrometers</b> on them; <br>
-                  a narrow band of metal containing a spring that creates a measurable gap as the tree grows. <br>
-                  This way, we can see how much a tree has grown since it has been banded.</div>
+            <div id="flip">Click to show/hide info</div>
+            <div id="map-info" class="small-text map-overlay">
+
+                <div id="map-info-content">
+                  <div class="med-text" style="font-family: tree; color:#FFD373">Welcome to South Forest.</div>
+                  <br>
+                  <br>
+                  These points on the map represent individual trees with <b>dendrometers</b> on them;
+                  a narrow band of metal containing a spring that creates a measurable gap as the tree grows.
+                  <br>
+                  <br>
+                  <b>Click on points</b> to see individuals' growth and to learn more about each tree.
+                  <br>
+                  <br>
+                  <b>See below</b> for other map layers, including <b>unique species</b> that were only found once in our sampling plots, the <b>sampling plots</b> which show the areas that we studied, and an overlay of the entire <b>forest area</b>.
+                  <br>
+                  <br>
+                  <b>Don't forget to click on map elements to learn more!</b>
+                </div>
             </div>
         </div>
 
@@ -136,20 +153,73 @@
            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXTSQWNf8A5vQKk7nrAy5CoCe7YSEqg2g&callback=initMap">
                  </script>
 
-       <div id="dendro" class="row text-center row-ext">
-           <div id="dendro-col" class="col-lg-12 col">
-          </div>
-        </div>
+       <div id="dendro" class="row text-center">
+           <div class="col-sm-3 col">
+             <div class="checkbox">
+                 <label>
+                     <input id="dendrometerTrees" type="checkbox" value="" onclick="dendroToggle()">
+                     View <b>Trees With Dendrometers</b>
+                 </label>
+               </div>
+           </div>
+           <div class="col-sm-3 col">
+             <div class="checkbox">
+                 <label>
+                     <input id="uniqueSpp" type="checkbox" value="" onclick="uniqueSppToggle()">
+                     View <b>Unique Tree Species</b>, only found once in our forest plots.
+                 </label>
+               </div>
+           </div>
+           <div class="col-sm-3 col">
+             <div class="checkbox">
+                 <label>
+                     <input id="checkForestPlots" type="checkbox" value="" onclick="forestPlotsToggle()">
+                     View the <b>Forest Study Plots</b>.
+                 </label>
+             </div>
+           </div>
+           <div class="col-sm-3 col">
+             <div class="checkbox">
+                 <label>
+                     <input id="checkForestArea" type="checkbox" value="" onclick="forestAreaToggle()">
+                     View the entire <b>Forest Area</b>
+                 </label>
+             </div>
+           </div>
+         </div>
+    </section>
 
 <!--Species and Diversity-->
+    <section id="species-scroll">
         <div id="species-head" class="head-row row row-ext species">
-            <div id="species-head-row"class="big-text">Species.</div>
+            <div id="species-head-col" class="col-sm-4">
+                <div id="species-head-row" class="big-text row">Species</div>
+                  <div id="species-head-info" class="small-text text-center row">Species can tell us a lot about a forest.
+                  <br>
+                  <br>    Here is a graph of the species in South Forest, ranked in order of their relative abundance.
+                  <br>
+                  <br>    With rank-abundance graphs, we can learn which species are most dominant and how diverse the forest is. When this line in long and even, we say a forest is more diverse. A shorter line, with fewer tree species, and a steeper slope, with a greater disparity in abundance of those species, indicates low diversity.</div>
+            </div>
+            <div class="col-lg-8 col text-center" id="species-chart-selector-col">
+                <div class="box content-box">
+                    <div class="center btn-group btn-group-sm" style="margin:5px">
+                        <button type="button" class="btn btn-danger" onclick="totals_button()">Total</button>
+                        <button type="button" class="btn btn-danger" onclick="edge_button()">Edge</button>
+                        <button type="button" class="btn btn-danger" onclick="interior_button()">Interior</button>
+                    </div>
+
+                         <div id="forest-chart" class="line-charts chart-active"></div>
+                         <div id="forest-chart-edge" class="line-charts"></div>
+                         <div id="forest-chart-interior" class="line-charts"></div>
+                </div>
+            </div>
         </div>
 
-        <div id="species" class="row row-ext species">
-            <div class="col-sm-2 col species-info">
+        <div id="species" class="text-center row row-ext species">
+            <div class="col-md-6 col species-info">
                 <div class="species-info" id="edge-species-info">
-                    <div class="small-text"><b>The Edge</b></div><br>
+                    <div class="big-text" style="font-family: leafy; color: #37C92A;">
+                    0 The Edge 0</div><br>
                     <br>
                     Total trees: 222 <br>
                     Number of Species: 21 <br>
@@ -165,24 +235,10 @@
                     White Oak<br>
                 </div>
             </div>
-
-            <div class="col-lg-8 col" id="species-chart-selector-col">
-                <div class="box content-box">
-                    <div class="center btn-group btn-group-lg" style="margin:5px">
-                        <button type="button" class="btn btn-warning" onclick="totals_button()">Total</button>
-                        <button type="button" class="btn btn-danger" onclick="edge_button()">Edge</button>
-                        <button type="button" class="btn btn-danger" onclick="interior_button()">Interior</button>
-                    </div>
-
-                         <div id="forest-chart" class="line-charts chart-active"></div>
-                         <div id="forest-chart-edge" class="line-charts"></div>
-                         <div id="forest-chart-interior" class="line-charts"></div>
-                </div>
-            </div>
-
-            <div class="species-info col-sm-2 col">
+            <div class="species-info col-md-6 col">
                 <div class="species-info" id="interior-species-info">
-                    <div class="small-text"><b>The Interior</b></div><br>
+                    <div class="big-text" style="font-family: leafy; color: #37C92A;">
+                    0 The Interior 0</div><br>
                     <br>
                     Total Trees: 137<br>
                     Number of Species: 13<br>
@@ -194,63 +250,156 @@
                 </div>
             </div>
         </div>
+    </section>
 
 <!-- Forest Carbon Summary-->
-        <div id="carbon-head" class="row head-row row-ext">
-            <div class="col-lg-12">
-                <div class="big-text">Carbon.</div>
+    <section id="carbon-scroll">
+        <div id="carbon-head" class="text-center row head-row row-ext">
+            <div id="carbon-footprint"class="col-md-4">
+                <div class="small-text">
+                    <img src="img/footprint.png" style="width:100px;height:auto;">
+                    <br>
+                    <br>
+                  The average person will emit
+                  <br>
+                  <div class="med-text blue-carbon">5 tons</div> of carbon per year.
+                </div>
+            </div>
+
+            <div id="carbon-global" class="col-md-4">
+                <div class="big-text blue-carbon" style="font-family: tall;"><b>Carbon</b></div>
+                <div class="small-text">There is a present global need to reduce the rate of increase of atmospheric carbon.
+                <br>
+                How we manage forests is important for this.</div>
+                <br>
+                <br>
+                <br>
+                <img src="img/earth-clipart.png" style="width:100px;height:auto;">
+                <br>
+                <div class="small-text">
+                  The world's forests are estimated to be a carbon sink of <div class="med-text blue-carbon">2 Gigatons</div> of carbon per year.
+                  <br>(2,000,000,000 tons)
+                </div>
+            </div>
+
+            <div id="forest-carbon-storage"class="col-md-4">
+              <div class="small-text">
+                  <img src="img/tree-clipart.png" style="width:100px;height:auto;">
+                  <br>
+                  <br>
+                  Our forest contains around <div class="med-text blue-carbon">3000 tons</div> of carbon in the above ground biomass of its trees.
+              </div>
             </div>
         </div>
 
         <div id="carbon" class="row text-center row-ext">
             <div class="col-lg-8 col">
-                <div class="box content-box">
-                    <div id="carbChart" style="width: 600px; height: 400px; margin: 0 auto"></div>
+                <div id="carbChart-container" class="box content-box">
+                    <div id="carbChart"></div>
                 </div>
             </div>
 
-            <div class="col-md-4 col">
+            <div id="carb-chart-info" class="col-md-4 col">
                 <div class="box content-box">
-                    <div> Let's look at the forest for the trees. <br>
-                          No, really. Just the trees. <br>
-                          When we look at the number and size of all of the tree species we've sampled in the forest, <br>
-                          we can look at which species account for the most carbon. This is calculated from something called their <br>
-                          Above Ground Biomass; an assumption based off of the trees diameter. <br>
-                          It looks like the mighty red and black oaks are the winners for storing our carbon.
-                    </div>
+                    <div class="big-text" style="font-family: tree; color: #0F1B00;">Where is the Carbon?</div>
+                    <br>
+                    <br>
+                    <div class="small-text">
+                      When we look at the number and size of all of the tree species we've sampled in the forest,
+                          we can look at which species' account for the most carbon.
+                          <br>
+                          <br>
+                          This is calculated from their
+                          Above Ground Biomass; the biomass stored in the trunk,
+                          crown and every above ground part of the tree. <br>
+                          <br>
+                          <br>
+                          Which species' presently hold the most carbon?
+                      </div>
                 </div>
             </div>
         </div>
+    </section>
 
 <!--Edge Effects Bar Charts-->
+    <section id="edge-scroll">
         <div id="edge-effect-head" class="head-row row row-ext edge-effect">
-            <div class="col-lg-12">
-                <div class="big-text">Edge Effects.</div>
+
+            <div class="col-md-6">
+                <div class="big-text text-center">Edge Effects</div>
+                <div class="small-text text-center">
+                  <br>
+                  <br>
+                Human land use is increasing the amound of edge area in forests.
+                <br>
+                We can study what effects this might have on carbon storage and species composition in forests.
+                <br>
+                <br>
+                Here are charts representing the carbon, tree density and basal area of the edge and interior of the forest.
+                <br>
+                <br>
+                The <b>Carbon</b> compared here is a measure of the mass of carbon in the above ground biomass of trees per area of forest.
+                <br>
+                The <b>Density</b> shows the amount of trees per unit area of forest. Which plot has more tree density?
+                <br>
+                The <b>Basal Area</b> is a measure of what fraction of forest floor area is covered by trees.
             </div>
-        </div>
+            </div>
 
-        <div id="edge-effect" class="row text-center row-ext edge-effect">
-            <div class="col-md-5 col">
-                <div id="density-bar-chart" class="bar-chart-sm"></div>
-                <div id="basal-bar-chart" class="bar-chart-sm"></div>
-              </div>
+            <div id="carbon-bar-column" class="col-md-6 col text-center">
 
-            <div class="col-md-7 col">
+                <div class="center btn-group btn-group-sm" style="margin:5px">
+                    <button type="button" class="btn btn-warning" onclick="carbon_button()">Carbon</button>
+                    <button type="button" class="btn btn-warning" onclick="density_button()">Density</button>
+                    <button type="button" class="btn btn-warning" onclick="basal_button()">Basal Area</button>
+                </div>
+
                 <div id="carbon-bar-chart" class="bar-chart-lg"></div>
+                <div id="density-bar-chart" class="bar-chart-hidden"></div>
+                <div id="basal-bar-chart" class="bar-chart-hidden"></div>
+
             </div>
         </div>
+    </section>
 
 <!-- Historic South Forest-->
-        <div id="carbon-hist-head" class="head-row row row-ext carbon-hist">
-            <div class="big-text">Looking Back.</div>
-            <div class="small-text">We've been monitoring our forest for a while. <br>
-                                    Here is what we've seen since 1972. </div>
+    <section id="history-scroll">
+        <div id="carbon-hist-head" class="head-row row row-ext carbon-hist-head">
+            <div id="carbon-hist-title" class="carbon-hist-head col-md-6">
+                    <div class="big-text">Looking Back.</div>
+                    <div class="small-text">We've been monitoring our forest for a while. <br>
+                                            Here is what we've collected since 1972.
+                                          <br>
+                                          <br>
+                                          From our data, the <b>American Beech</b> has consistently remained the dominant species since 1972.
+                                          <br>
+                                          <br>
+                                            Now that you've seen tree density and basal area in the edge effects, let's look at how they've changed over time.
+                                            <br>
+                                            Do you see a trend?
+                                          </div>
+            </div>
+            <div id="carbon-hist" class="text-center carbon-hist-head col-md-6">
+                    <div class="center btn-group btn-group-sm" style="margin:5px">
+                        <button type="button" class="btn btn-warning" onclick="hist_density_button()">Density</button>
+                        <button type="button" class="btn btn-warning" onclick="hist_ba_button()">Basal Area</button>
+                    </div>
+
+                    <div id="historic-density-line-chart" class="historic-chart-active"></div>
+                    <div id="historic-basal-area-line-chart" class="historic-chart-hidden"></div>
+            </div>
         </div>
 
 <!--Image carousel-->
-        <div id="hist-img" class="row row-ext carbon-hist hist-img">
-          <div class="container">
-            <br>
+        <div id="hist-img" class="text-center row carbon-hist hist-img">
+            <div id="hist-image-info" class="col-sm-4">
+                <div class="big-text" style="font-family: leafy; color: #DBE39D;">Aerial Imagery</div>
+              <br>
+              <br>
+                <div class="small-text">We've collected these aerial photos of the forest from as far back as 1958. There are visible changes in how land use has changed the forest area over time.
+            </div>
+          </div>
+            <div class="col-md-8">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
               <!-- Indicators -->
               <ol class="carousel-indicators">
@@ -265,55 +414,62 @@
 
               <!-- Wrapper for slides -->
               <div class="carousel-inner" role="listbox">
+
                 <div class="item active">
-                  <img src="img/2013.png" alt="2013" width="460" height="345">
-                    <div class="carousel-caption">
-                       <h3>2013</h3>
-                   </div>
-                </div>
-
-                <div class="item">
-                  <img src="img/2009.png" alt="2009" width="460" height="345">
-                    <div class="carousel-caption">
-                       <h3>2009</h3>
-                   </div>
-                </div>
-
-                <div class="item">
-                  <img src="img/2004.png" alt="2004" width="460" height="345">
-                    <div class="carousel-caption">
-                       <h3>2004</h3>
-                   </div>
-                </div>
-
-                <div class="item">
-                  <img src="img/2001-IR.png" alt="2001" width="460" height="345">
-                    <div class="carousel-caption">
-                       <h3>2001</h3>
-                    </div>
-                </div>
-
-                <div class="item">
-                  <img src="img/1994.png" alt="1994" width="460" height="345">
-                    <div class="carousel-caption">
-                       <h3>1994</h3>
-                    </div>
-                </div>
-
-                <div class="item">
-                  <img src="img/1963.png" alt="1963" width="460" height="345">
-                    <div class="carousel-caption">
-                      <h3>1963</h3>
-                    </div>
-                </div>
-
-                <div class="item">
                   <img src="img/1958.png" alt="1958" width="460" height="345">
                     <div class="carousel-caption">
                        <h3>1958</h3>
+                       <p>This blurry image of the past is able to represent a lack of human land management and dominance of forest.</p>
                     </div>
                 </div>
+
+              <div class="item">
+                <img src="img/1963.png" alt="1963" width="460" height="345">
+                  <div class="carousel-caption">
+                    <h3>1963</h3>
+                    <p>South Forest in 1963 lacked land use by the college, but notice the managed area dominating the right; an apple orchard.</p>
+                  </div>
               </div>
+
+              <div class="item">
+                <img src="img/1994.png" alt="1994" width="460" height="345">
+                  <div class="carousel-caption">
+                     <h3>1994</h3>
+                     <p>Here, you can see the addition of the field which occurred some time in the 70's. See how the additional creek from 1963 is now displaced.</p>
+                  </div>
+              </div>
+
+              <div class="item">
+                <img src="img/2001-IR.png" alt="2001" width="460" height="345">
+                  <div class="carousel-caption">
+                     <h3>2001</h3>
+                     <p>Notice that the apple orchard to the right has not been managed, and is beginning to grow over.</p>
+                  </div>
+              </div>
+
+            <div class="item">
+              <img src="img/2004.png" alt="2004" width="460" height="345">
+                <div class="carousel-caption">
+                   <h3>2004</h3>
+                   <p>You can see a construction lot in the north field.</p>
+               </div>
+            </div>
+
+            <div class="item">
+              <img src="img/2009.png" alt="2009" width="460" height="345">
+                <div class="carousel-caption">
+                   <h3>2009</h3>
+                   <p>Note the construction in the northern field, the stony clove creek, and the faint scar of the old orchard.</p>
+               </div>
+            </div>
+
+          <div class="item">
+            <img src="img/2013.png" alt="2013" width="460" height="345">
+              <div class="carousel-caption">
+                 <h3>2013</h3>
+                 <p>Notice the Stony clove creek and the overgrown orchard, which is now barely visible in the top right.</p>
+             </div>
+          </div>
 
               <!-- Left and right controls -->
               <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -324,31 +480,29 @@
                 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
               </a>
-            </div>
           </div>
         </div>
-
-        <div id="carbon-hist" class="row text-center row-ext carbon-hist">
-            <div class="col-md-6 col">
-                <div class="box content-box">
-                    <div id="historic-density-line-chart" class="historic-chart-active"></div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col">
-                <div class="box content-box">
-                    <div id="historic-basal-area-line-chart" class="historic-chart-active"></div>
-                </div>
-            </div>
-        </div>
+      </div>
+    </section>
 
 <!--Mo' Stuff-->
-        <div class="row text-center row-ext">
-            <div class="col-lg-8 col">
+    <section id="acknowledgements-scroll">
+        <div class="row text-center">
+            <div class="col-lg-12 col">
                 <div id="more" class="box content-box">
+                  <b>Acknowledgements</b>
+                  <br>
+                  G. Simard-Moore
+                  <br>
+                  E. Keeling
+                  <br>
+                  J. Simons
+                  <br>
                 </div>
             </div>
         </div>
+    </section>
+
         <!-- /.row -->
                             <pre id="tree-data" style="display: none;">
                             Species, Abundance

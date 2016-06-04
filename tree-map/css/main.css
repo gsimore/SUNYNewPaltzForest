@@ -2,9 +2,51 @@
 
 
 /*Styles for page elements, nesting boxes, and fonts*/
+body {
+  overflow-x: hidden;
+}
+
+@font-face {
+    font-family: printcess;
+    src: url('../fonts/Printcess.ttf');
+}
+
+@font-face {
+    font-family: kid;
+    src: url('../fonts/KidPrint.ttf');
+}
+
+@font-face {
+    font-family: leafy;
+    src: url('../fonts/Leafyfont.ttf');
+}
+
+@font-face {
+    font-family: tree;
+    src: url('../fonts/Talltree.ttf');
+}
+
+@font-face {
+    font-family: tall;
+    src: url('../fonts/Tallertree.otf');
+}
+
+@font-face {
+    font-family: forestry;
+    src: url('../fonts/Forestry.ttf');
+}
+
+@font-face {
+    font-family: vines;
+    src: url('../fonts/OrganicVines.ttf');
+}
 
 .extra-big-text{
-  font-size: 500%;
+  font-size: 600%;
+}
+
+.med-text {
+  font-size: 200%;
 }
 
 .big-text {
@@ -13,6 +55,10 @@
 
 .small-text {
   font-size: 1.0em;
+}
+
+.large-letter {
+  font-size: 1.3em;
 }
 
 .break {
@@ -52,8 +98,27 @@
 
 #navbar-main {
   margin-bottom: 0;
-  background-color: #391101;
-  border-color: #260B00;
+  background-color: #210A00;
+  border-color: #110804;
+}
+
+navbar ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+
+navbar li {
+
+}
+
+navbar li a {
+    color:rgb(50,50,50);
+    font-weight:700;
+}
+
+a.nav-active {
+    color:#29B050;
 }
 
 /* Styles for content sections*/
@@ -71,11 +136,12 @@
   background: -webkit-linear-gradient(45deg, #8c3310 0%,#752201 64%,#1B1B1B 99%,#bf6e4e 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(45deg, #8c3310 0%,#752201 64%,#1B1B1B 99%,#bf6e4e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8c3310', endColorstr='#bf6e4e',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-  padding-top: 100px;
+  padding-top: 80px;
 }
 
 #banner-title {
-  font-size: 3.5em;
+  font-family: vines;
+  font-size: 8em;
   text-align: center;
   color: white;
   opacity: 1.0;
@@ -87,32 +153,110 @@
     color: #ffffff;
 }
 
-#googleForestMap {
+#map-row {
   height: 500px;
+  border-top: 1px solid #144333;
+}
+
+#googleForestMap {
+  height: 600px;
   width: 100%;
   border: 10px;
   border-color: black;
-  margin: 5px;
-  color: #8d4654;
+}
+
+.map-overlay {
+
+}
+
+#iw-head{
+    background-color: #144333;
+    height: 20px;
+    width: 100%;
+    position: relative;
+}
+
+.map-info-window {
+  width: 450px;
+  overflow: hidden;
+}
+
+#infoWindowChart {
+  width: 100%;
+  height: auto;
+}
+
+#flip {
+    padding: 2px;
+    text-align: center;
+    background-color: #6C874D;
+    color: white;
+    border: solid 1px #08150E;
+    height: 2em;
+    margin-top: -2em;
+    padding-top: 0.35em;
+    position: absolute;
+    right: 4%;
+    width: 22em;
+    z-index: 10;
 }
 
 #map-info {
-  padding: 20px;
+    background-color: #08150E;
+    color: white;
+    height: 40.9em;
+    margin-top: -42.9em;
+    opacity: 0.89;
+    padding: 20px;
+    padding-top: 5em;
+    position: absolute;
+    right: 4%;
+    width: 22em;
+    z-index: 9;
+}
+
+#map-info-content {
+  opacity: 1.0;
+}
+
+#map-row {
+  background-color:#2A3026;
 }
 
 #dendro {
-    background-color: none;
+    background-color: #15282E;
+    padding-top: 120px;
+    height: 200px;
     color: #ffffff;
 }
 
 #species-head {
     background-image: url("../img/bark.jpg");
-    height: 500px;
-    color: #ffffff;
+    height: 600px;
+}
+
+#species-head-row {
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+#species-info-row {
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: center;
+}
+
+#edge-species-info {
+
+}
+
+#interior-species-info {
+
 }
 
 .species {
-    background-color: #110006;
+    background-image: url("../img/dirt.jpg");
+    background-size: 100%, 600px;
     color: white;
 }
 
@@ -121,62 +265,114 @@
 }
 
 .line-charts {
-  min-width: 65%;
-  height: 400px;
+  width: 700px;
+  height: 350px;
   margin: 0 auto;
   display: none;
 }
 
 .chart-active {
-  min-width: 65%;
-  height: 400px;
+  width: 700px;
+  height: 350px;
   margin: 0 auto;
   display: block;
 }
 
 .species-info {
-  padding-top: 20px;
+  padding-top: none;
   min-height: 100%;
 }
 
 #carbon-head {
   background-image: url("../img/brownleaf.jpg");
-  background-size: 100% 600px;
-  height: 500px;
+  background-size: 100% 650px;
+  height: 650px;
   color: #ffffff;
 }
 
+
 #carbon {
-    background-color: #280600;
-    color: #ffffff;
+    color: #D4D9AA;
+    background-image: url("../img/leafimprint.JPG");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+.blue-carbon {
+  color: #0B2227;
+  text-shadow: 1px 1px 7px #F0A27D;
+}
+
+#carbChart-container {
+
+}
+
+#carb-chart-info {
+  padding-right: 5%;
+}
+
+#forest-carbon-storage {
+  padding-top: 200px;
+}
+
+#carbon-footprint {
+  padding-top: 200px;
+}
+
+#carbon-global {
+
+}
+
+#carbChart {
+  width: 70%;
+  height: auto;
+  margin: 0 auto
 }
 
 #edge-effect-head {
   background-image: url("../img/glow.jpg");
-  background-size: 100% 600px;
-  height: 500px;
+  background-size: 100% 700px;
+  height: 700px;
   color: #ffffff;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 .edge-effect {
     background-color: #BDAC18;
 }
 
-.bar-chart-sm {
-  width: 80%;
-  height: 200px;
-  margin-bottom: 20px;
+#carbon-bar-column {
+    padding-left: 50px;
+}
+
+.bar-chart-hidden {
+  width: 500px;
+  height: auto;
+  display: none;
 }
 
 .bar-chart-lg {
-  min-width: 60%
+  width: 500px;
+  height: auto;
 }
 
 #carbon-hist-head {
-  background-image: url("../img/treering.jpg");
-  background-size: 100% 600px;
-  height: 500px;
-  color: #ffffff;
+    background-image: url("../img/treering.jpg");
+    background-repeat: no-repeat;
+    background-size: auto 700px;
+    color: #ffffff;
+    height: 700px;
+}
+
+#carbon-hist-title {
+  padding: 100px;
+}
+
+#hist-image-info {
+  padding-left: 70px;
+  padding-top: 70px;
+  padding-right: 50px;
 }
 
 .carbon-hist {
@@ -186,9 +382,10 @@
 
 .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
-      width: 70%;
-      height: 500px;
+      width: 66%;
+      height: 35em;
       margin: auto;
+      padding-top: none;
   }
 
 /*historic-charts*/
@@ -197,9 +394,16 @@
   margin: 10px;
 }
 
+.historic-chart-hidden {
+  min-width: 40%;
+  margin: 10px;
+  display: none;
+}
+
 
 #more {
     background-color: none;
-    height: 200px;
-    color: #ffffff;
+    padding: 20px;
+    height: auto;
+    color: #211922;
 }
